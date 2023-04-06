@@ -4,7 +4,17 @@ for (var i = 0; i < numberOfDrumBtns; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     var buttonInnerHTML = this.innerHTML;
 
-    switch (buttonInnerHTML) {
+    makeSound(buttonInnerHTML);
+    
+  });
+}
+
+document.addEventListener("keypress", function(event){
+    makeSound(event.key);
+})
+
+function makeSound(key){
+    switch (key) {
         case "w":
             var snare = new Audio("./sounds/snare.mp3");
             snare.play();
@@ -35,7 +45,6 @@ for (var i = 0; i < numberOfDrumBtns; i++) {
             break;
         default: console.log(buttonInnerHTML);
     }
-  });
 }
 
 /* function playAudio() {
